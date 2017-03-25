@@ -1,0 +1,35 @@
+<div class="list" ng-app="theater">
+    <ul>
+        <li ng-repeat="item in data.subjects track by $index">
+            <a href="#/details">
+                <img ng-src={{item.images.large}}  alt="">
+            </a>
+            <div class="meta">
+                <h4><span>{{item.title}}</span> <em>{{item.rating.average}}分</em></h4>
+                <div class="otherinfo">类型:<span ng-repeat="tp in item.genres">{{tp }} </span></div>
+            </div>
+        </li>
+    </ul>
+    <div class="paging">
+        <label>总共：{{total}}条记录,第{{page}}/{{totalPage}}页;</label>
+        <!-- 加上disable类样式，表示按钮禁用状态 -->
+        <button class="prev" ng-class="{'disable': page<2}" ng-click="getChange(page-1)">上一页</button>
+        <button class="next" ng-class="{'disable': page>=totalPage}"  ng-click="getChange(page+1)">下一页</button>
+    </div>
+</div>
+
+
+
+<div class="loading-box" ng-show="loading">
+    <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+    </div>
+</div>
